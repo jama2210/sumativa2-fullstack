@@ -1,0 +1,28 @@
+<div class="container d-flex flex-column justify-content-center align-items-center vh-100">
+<h2>Iniciar sesión</h2>
+<form [formGroup]="form" (ngSubmit)="login()">
+  <div class="mb-3">
+    <label>Email</label>
+    <input class="form-control" formControlName="email" type="email">
+    <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched" class="text-danger">
+      Email requerido o inválido
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label>Contraseña</label>
+    <input class="form-control" formControlName="password" type="password">
+    <div *ngIf="form.get('password')?.invalid && form.get('password')?.touched" class="text-danger">
+      Contraseña requerida
+    </div>
+  </div>
+
+  <div *ngIf="errorMsg" class="alert alert-danger">{{ errorMsg }}</div>
+
+  <button class="btn btn-primary" [disabled]="form.invalid">Ingresar</button>
+
+</form>
+<a [routerLink]="['/forgot-password']" class="link-opacity-10-hover">Recuperar contraseña</a>
+</div>
+
+

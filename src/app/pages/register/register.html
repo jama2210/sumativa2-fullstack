@@ -1,0 +1,22 @@
+<div class="container d-flex flex-column justify-content-center align-items-center vh-100">
+  <h2>Registro</h2>
+  <form [formGroup]="form" (ngSubmit)="submit()" class="col-md-8 col-lg-6">
+    <div class="mb-3">
+      <label>Nombre</label>
+      <input class="form-control" formControlName="nombre">
+    </div>
+    <div class="mb-3">
+      <label>Email</label>
+      <input class="form-control" formControlName="email">
+    </div>
+    <div class="mb-3">
+      <label>Contraseña</label>
+      <input type="password" class="form-control" formControlName="password">
+    </div>
+    <button class="btn btn-primary" [disabled]="form.invalid">Registrarse</button>
+  </form>
+  <div *ngIf="success" class="alert alert-success mt-3">
+    ¡Registro exitoso! Serás redirigido al login...
+  </div>
+</div>
+

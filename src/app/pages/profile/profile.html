@@ -1,0 +1,31 @@
+<h2>Bienvenido a tu perfil</h2>
+<p>Aquí puedes ver y editar tu información.</p>
+
+<h2>Mi Perfil</h2>
+<form [formGroup]="form" (ngSubmit)="guardar()">
+  <div class="mb-3">
+    <label for="nombre">Nombre</label>
+    <input id="nombre" class="form-control" formControlName="nombre">
+  </div>
+
+  <div class="mb-3">
+    <label for="email">Email</label>
+    <input id="email" class="form-control" formControlName="email" type="email">
+  </div>
+
+  <div class="mb-3">
+    <label for="telefono">Teléfono</label>
+    <input id="telefono" class="form-control" formControlName="telefono" type="tel">
+  </div>
+
+  <div class="mb-3">
+    <label for="edad">Edad</label>
+    <input id="edad" class="form-control" formControlName="edad" type="number">
+  </div>
+
+  <button class="btn btn-success" [disabled]="form.invalid">Guardar cambios</button>
+</form>
+
+<div *ngIf="saved" class="alert alert-success mt-3">
+  Perfil actualizado con éxito.
+</div>
