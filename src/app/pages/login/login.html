@@ -1,4 +1,4 @@
-<div class="container d-flex flex-column justify-content-center align-items-center vh-100">
+<!-- <div class="container d-flex flex-column justify-content-center align-items-center vh-100">
 <h2>Iniciar sesión</h2>
 <form [formGroup]="form" (ngSubmit)="login()">
   <div class="mb-3">
@@ -23,6 +23,102 @@
 
 </form>
 <a [routerLink]="['/forgot-password']" class="link-opacity-10-hover">Recuperar contraseña</a>
-</div>
+</div> -->
 
+<body data-bs-theme="dark" class="bg-dark text-light">
+  <div
+    class="container d-flex flex-column justify-content-center align-items-center vh-100"
+  >
+    <div
+      class="card p-4 p-md-5 bg-dark-subtle border-0 shadow-lg"
+      style="max-width: 450px; width: 100%"
+    >
+      <div class="card-body">
+        <h2 class="card-title text-center mb-4 fw-bold text-yellow-accent">
+          Iniciar Sesión
+        </h2>
+        <p class="card-text text-center text-muted mb-4">
+          Bienvenido de nuevo. Ingresa tus credenciales.
+        </p>
+
+        <form
+          [formGroup]="form"
+          (ngSubmit)="login()"
+          class="needs-validation"
+          novalidate
+        >
+          <div class="mb-3">
+            <label for="emailInput" class="form-label text-light-emphasis"
+              >Email</label
+            >
+            <input
+              type="email"
+              class="form-control form-control-lg bg-gray-dark border-secondary text-white"
+              id="emailInput"
+              formControlName="email"
+              placeholder="tu.email@ejemplo.com"
+              required
+              [class.is-invalid]="form.get('email')?.invalid && form.get('email')?.touched"
+              [class.is-valid]="form.get('email')?.valid && form.get('email')?.touched"
+            />
+            <div
+              *ngIf="form.get('email')?.invalid && form.get('email')?.touched"
+              class="invalid-feedback"
+            >
+              Email requerido o inválido.
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="passwordInput" class="form-label text-light-emphasis"
+              >Contraseña</label
+            >
+            <input
+              type="password"
+              class="form-control form-control-lg bg-gray-dark border-secondary text-white"
+              id="passwordInput"
+              formControlName="password"
+              placeholder="Mínimo 6 caracteres"
+              required
+              [class.is-invalid]="form.get('password')?.invalid && form.get('password')?.touched"
+              [class.is-valid]="form.get('password')?.valid && form.get('password')?.touched"
+            />
+            <div
+              *ngIf="form.get('password')?.invalid && form.get('password')?.touched"
+              class="invalid-feedback"
+            >
+              Contraseña requerida.
+            </div>
+          </div>
+
+          <div
+            *ngIf="errorMsg"
+            class="alert alert-danger text-center"
+            role="alert"
+          >
+            {{ errorMsg }}
+          </div>
+
+          <div class="d-grid gap-2 mb-3">
+            <button
+              type="submit"
+              class="btn btn-primary btn-lg fw-bold"
+              [disabled]="form.invalid"
+            >
+              Ingresar
+            </button>
+          </div>
+        </form>
+
+        <div class="text-center mt-3">
+          <a
+            [routerLink]="['/forgot-password']"
+            class="link-yellow-accent text-decoration-none fw-semibold"
+            >¿Olvidaste tu contraseña?</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
 

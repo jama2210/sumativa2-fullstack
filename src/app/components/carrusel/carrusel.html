@@ -1,5 +1,5 @@
 <!-- Carrusel del home -->
-<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+<!-- <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active" data-bs-interval="10000">
       <img src="img/galeriaGym1.jpg" class="d-block w-100" alt="...">
@@ -37,4 +37,127 @@
         object-fit: cover;
         filter: brightness(40%);
     }
+</style> -->
+
+<div id="carouselExampleInterval" class="carousel slide carousel-fade" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="6000"> <img src="img/galeriaGym1.jpg" class="d-block w-100 carousel-img-custom" alt="Vista del gimnasio">
+      <div class="carousel-caption d-none d-md-block text-start caption-custom"> <h5 class="display-3 fw-bold text-shadow-dark text-yellow-accent">Bienvenidos a Alys Gym</h5> <p class="lead text-shadow-dark mb-4">Entrenamiento personalizado y resultados que te impulsan.</p> <a [routerLink]="['/register']" class="btn btn-lg btn-primary fw-bold px-4 py-2">¡Únete ahora!</a> </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="6000">
+      <img src="img/galeriaGym2.jpg" class="d-block w-100 carousel-img-custom" alt="Clase grupal de fitness">
+      <div class="carousel-caption d-none d-md-block text-start caption-custom">
+        <h5 class="display-3 fw-bold text-shadow-dark text-yellow-accent">Clases Grupales Energizantes</h5>
+        <p class="lead text-shadow-dark mb-4">Descubre la motivación en cada sesión con nuestros expertos.</p>
+        <a [routerLink]="['/profile']" class="btn btn-lg btn-primary fw-bold px-4 py-2">Explora las clases</a>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="6000">
+      <img src="img/galeriaGym3.jpg" class="d-block w-100 carousel-img-custom" alt="Entrenamiento con pesas">
+      <div class="carousel-caption d-none d-md-block text-start caption-custom">
+        <h5 class="display-3 fw-bold text-shadow-dark text-yellow-accent">Entrenamiento Personalizado</h5>
+        <p class="lead text-shadow-dark mb-4">Alcanza tus metas con planes a tu medida y soporte constante.</p>
+        <a [routerLink]="['/login']" class="btn btn-lg btn-primary fw-bold px-4 py-2">Conoce a nuestros coaches</a>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="6000">
+      <img src="img/galeriaGym4.jpg" class="d-block w-100 carousel-img-custom" alt="Área de cardio">
+      <div class="carousel-caption d-none d-md-block text-start caption-custom">
+        <h5 class="display-3 fw-bold text-shadow-dark text-yellow-accent">Instalaciones de Vanguardia</h5>
+        <p class="lead text-shadow-dark mb-4">Equipos de última generación para tu mejor desempeño.</p>
+        <a [routerLink]="['/register']" class="btn btn-lg btn-primary fw-bold px-4 py-2">Agenda un tour</a>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="6000">
+      <img src="img/galeriaGym5.jpg" class="d-block w-100 carousel-img-custom" alt="Gimnasio iluminado">
+      <div class="carousel-caption d-none d-md-block text-start caption-custom">
+        <h5 class="display-3 fw-bold text-shadow-dark text-yellow-accent">Tu Viaje Fitness Comienza Aquí</h5>
+        <p class="lead text-shadow-dark mb-4">Un ambiente que te inspira a superar tus límites cada día.</p>
+        <a [routerLink]="['/register']" class="btn btn-lg btn-primary fw-bold px-4 py-2">¡Inscríbete hoy!</a>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Anterior</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Siguiente</span>
+  </button>
+</div>
+
+<style>
+  /* --- Carrusel Home --- */
+.carousel-img-custom {
+  height: 600px; /* Un poco más alto para mayor impacto */
+  object-fit: cover;
+  filter: brightness(40%); /* Oscurece las imágenes para que el texto destaque */
+  /* Puedes añadir un gradiente oscuro si quieres un efecto más pronunciado */
+  /* background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 100%); */
+}
+
+/* Asegura que el texto del carrusel esté por encima de la imagen */
+.carousel-caption {
+  position: absolute;
+  top: 50%;
+  left: 10%; /* Lo alinea más a la izquierda */
+  transform: translateY(-50%);
+  bottom: auto; /* Desactiva la posición inferior predeterminada */
+  right: auto;
+  text-align: left; /* Alinea el texto a la izquierda */
+  max-width: 60%; /* Limita el ancho del texto */
+}
+
+.carousel-caption h5 {
+  font-size: 3.5rem; /* Títulos más grandes */
+  line-height: 1.2;
+}
+
+.carousel-caption p {
+  font-size: 1.75rem; /* Subtítulos más grandes */
+  line-height: 1.4;
+}
+
+.text-shadow-dark {
+  text-shadow: 2px 2px 6px rgba(255, 255, 255, 0.7); /* Sombra para el texto para mejor legibilidad */
+}
+
+/* Ajustes responsivos para el carrusel */
+@media (max-width: 768px) {
+  .carousel-img-custom {
+    height: 400px;
+  }
+  .carousel-caption {
+    left: 5%;
+    max-width: 90%;
+    top: 45%; /* Ajusta la posición para pantallas más pequeñas */
+  }
+  .carousel-caption h5 {
+    font-size: 2.5rem;
+  }
+  .carousel-caption p {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .carousel-img-custom {
+    height: 300px;
+  }
+  .carousel-caption {
+    top: 40%;
+  }
+  .carousel-caption h5 {
+    font-size: 1.8rem;
+  }
+  .carousel-caption p {
+    font-size: 1rem;
+    margin-bottom: 1rem !important; /* Espacio antes del botón en móviles */
+  }
+  .carousel-caption .btn {
+    font-size: 0.9rem !important;
+    padding: 0.6rem 1.2rem !important;
+  }
+}
 </style>

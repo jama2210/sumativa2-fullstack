@@ -9,6 +9,7 @@ import { Router, RouterLink } from '@angular/router';
   imports: [CommonModule, ReactiveFormsModule, RouterLink],
   templateUrl: './login.html'
 })
+
 export class login {
   form: FormGroup;
   errorMsg = '';
@@ -22,16 +23,19 @@ export class login {
 
   login() {
     const { email, password } = this.form.value;
+    const usuarios = JSON.parse(localStorage.getItem('usuarios') || '[]');
 
-    // Simulación de login
-    if (email === 'admin@admin.com' && password === 'admin') {
-      localStorage.setItem('userRole', 'admin');
-      this.router.navigate(['/profile']);
-    } else if (email === 'cliente@cliente.com' && password === 'cliente') {
-      localStorage.setItem('userRole', 'cliente');
+    const usuario = usuarios.find((u: any) => u.email === email && u.password === password);
+
+    if (usuario) {
+      // Simulación de roles según nombre
+      const rol = usuario.nombre.toLowerCase().includes('admin') ? 'admin' : 'cliente';
+      localStorage.setItem('userRole', rol);
+      localStorage.setItem('userEmail', usuario.email);
       this.router.navigate(['/profile']);
     } else {
       this.errorMsg = 'Credenciales inválidas';
     }
   }
 }
+

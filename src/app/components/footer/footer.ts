@@ -6,5 +6,13 @@ import { Component } from "@angular/core";
 })
 
 export class footer {
+    constructor() { }
 
+  ngOnInit(): void {
+  }
+
+  // ¡Aquí está la función que necesitas!
+  getCurrentYear(): number {
+    return new Date().getFullYear();
+  }
 }

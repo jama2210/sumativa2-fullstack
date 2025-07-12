@@ -1,5 +1,5 @@
 <!-- Card component del home -->
-<div class="container py-5">
+<!-- <div class="container py-5">
     <div class="row text-center">
         <div class="col-md-4 mb-4">
             <div class="card h-100 shadow" style="width: 18rem;">
@@ -35,4 +35,76 @@
         height: 200px;
         object-fit: cover;
     }
+</style> -->
+
+<section class="container py-5">
+  <h2 class="text-center mb-5 fw-bold text-yellow-accent">¿Por qué elegir Alys Gym?</h2>
+  <div class="row row-cols-1 row-cols-md-3 g-4"> <div class="col">
+      <div class="card h-100 bg-dark-subtle border-0 shadow-lg feature-card"> <img src="img/galeriaGym2.jpg" class="card-img-top feature-img-custom" alt="Clases Grupales">
+        <div class="card-body d-flex flex-column justify-content-between">
+          <h5 class="card-title text-center fw-semibold text-yellow-accent-light mb-3">Clases Grupales Dinámicas</h5>
+          <p class="card-text text-center text-muted flex-grow-1">Experimenta la energía de nuestras clases, desde Zumba hasta Crossfit, lideradas por instructores expertos.</p>
+          <a [routerLink]="['/classes']" class="btn btn-outline-yellow-accent btn-sm mt-3 mx-auto">Ver Horarios</a> </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100 bg-dark-subtle border-0 shadow-lg feature-card">
+        <img src="img/galeriaGym7.jpg" class="card-img-top feature-img-custom" alt="Entrenamiento Personalizado">
+        <div class="card-body d-flex flex-column justify-content-between">
+          <h5 class="card-title text-center fw-semibold text-yellow-accent-light mb-3">Entrenamiento Personalizado</h5>
+          <p class="card-text text-center text-muted flex-grow-1">Programas a medida diseñados para tus objetivos específicos, con el apoyo constante de tu entrenador personal.</p>
+          <a [routerLink]="['/coaches']" class="btn btn-outline-yellow-accent btn-sm mt-3 mx-auto">Conoce a los Coaches</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100 bg-dark-subtle border-0 shadow-lg feature-card">
+        <img src="img/gym1.webp" class="card-img-top feature-img-custom" alt="Planes Flexibles">
+        <div class="card-body d-flex flex-column justify-content-between">
+          <h5 class="card-title text-center fw-semibold text-yellow-accent-light mb-3">Planes de Membresía Flexibles</h5>
+          <p class="card-text text-center text-muted flex-grow-1">Opciones de membresía adaptadas a tu estilo de vida y presupuesto, sin contratos complicados.</p>
+          <a [routerLink]="['/plans']" class="btn btn-outline-yellow-accent btn-sm mt-3 mx-auto">Ver Planes</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+    /* --- Cards Home (Sección de Características) --- */
+.feature-card {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important; /* Borde sutil para distinguirlas */
+}
+
+.feature-card:hover {
+  transform: translateY(-8px); /* Elevación más pronunciada al pasar el mouse */
+  box-shadow: 0 1rem 3rem rgba(var(--bs-primary-rgb), 0.25) !important; /* Sombra más grande y amarilla */
+}
+
+.feature-img-custom {
+  height: 250px; /* Altura un poco mayor para las imágenes de las tarjetas */
+  object-fit: cover;
+  filter: brightness(70%); /* Ligeramente oscuras, pero menos que el carrusel */
+  border-bottom: 2px solid var(--alysgym-yellow); /* Borde amarillo debajo de la imagen */
+}
+
+.feature-card .card-body {
+    padding: 1.5rem; /* Ajustar padding interno */
+}
+
+/* Botón de outline amarillo para las cards */
+.btn-outline-yellow-accent {
+    color: var(--alysgym-yellow) !important;
+    border-color: var(--alysgym-yellow) !important;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-outline-yellow-accent:hover {
+    background-color: var(--alysgym-yellow) !important;
+    color: var(--alysgym-dark) !important;
+    border-color: var(--alysgym-yellow) !important;
+}
 </style>

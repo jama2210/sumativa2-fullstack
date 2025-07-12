@@ -1,1 +1,155 @@
 /* You can add global styles to this file, and also import other style files */
+/* Variables de colores personalizados para Bootstrap */
+
+:root {
+  /* Tus colores primarios */
+  --alysgym-yellow: #EBF227; 
+  --alysgym-dark: #0D0D0D; 
+  --alysgym-gray: #737373; 
+  --alysgym-accent-yellow: #F2E205; 
+
+  /* Sobrescribir variables de Bootstrap para el modo oscuro */
+  --bs-body-bg: var(--alysgym-dark); /* Fondo principal de la página */
+  --bs-body-color: #F2F2F2; /* Color de texto general */
+
+  /* Colores para componentes de Bootstrap */
+  --bs-primary: var(--alysgym-yellow); 
+  --bs-primary-rgb: 235, 242, 39; 
+
+  --bs-secondary: var(--alysgym-gray); 
+  --bs-secondary-rgb: 115, 115, 115;
+
+  --bs-dark: var(--alysgym-dark); 
+  --bs-dark-rgb: 13, 13, 13;
+
+  /* Fondos para tarjetas y elementos oscuros sutiles */
+  --bs-dark-subtle: #1a1a1a; 
+  --bs-dark-border-subtle: rgba(255, 255, 255, 0.08); 
+
+  /* Fondo específico para inputs */
+  --bs-gray-dark: #2c2c2c; /* Fondo para los inputs, un gris oscuro diferente al de la tarjeta */
+
+  /* Color de énfasis para labels y texto secundario */
+  --bs-light-emphasis: #ccc; 
+  --bs-muted: var(--alysgym-gray); 
+
+  
+  --bs-success: #198754;
+  --bs-info: #0dcaf0;
+  --bs-danger: #dc3545;
+
+  /* Clases personalizadas para tus acentos */
+  --text-yellow-accent: var(--alysgym-yellow);
+  --text-yellow-accent-light: var(--alysgym-accent-yellow); 
+}
+
+/* Aplicación de colores para clases personalizadas (si sigues usándolas) */
+.text-yellow-accent {
+  color: var(--text-yellow-accent) !important;
+}
+
+.text-yellow-accent-light {
+  color: var(--text-yellow-accent-light) !important;
+}
+
+.link-yellow-accent {
+  color: var(--text-yellow-accent) !important;
+}
+
+.link-yellow-accent:hover {
+  color: var(--text-yellow-accent-light) !important;
+  text-decoration: underline !important;
+}
+
+/* Ajustes para inputs */
+.form-control.bg-gray-dark {
+  background-color: var(--bs-gray-dark) !important;
+  border-color: var(--bs-gray-700) !important;
+  color: var(--bs-body-color); 
+}
+
+.form-control.bg-gray-dark::placeholder {
+  color: var(--bs-gray-700) !important;
+  opacity: 0.7;
+}
+
+.form-control.bg-gray-dark:focus {
+  border-color: var(--bs-primary) !important; 
+  box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.25) !important;
+}
+
+/* Estilo para el botón primario de Bootstrap */
+.btn-primary {
+  background-color: var(--bs-primary) !important;
+  border-color: var(--bs-primary) !important;
+  color: var(--alysgym-dark) !important; /* Texto oscuro sobre botón amarillo */
+}
+
+.btn-primary:hover {
+  background-color: var(--alysgym-accent-yellow) !important; /* Otro amarillo al pasar el mouse */
+  border-color: var(--alysgym-accent-yellow) !important;
+  transform: translateY(-1px);
+}
+
+.btn-primary:disabled {
+  background-color: var(--alysgym-gray) !important;
+  border-color: var(--alysgym-gray) !important;
+  color: #aaa !important;
+  opacity: 0.6;
+  transform: none;
+}
+
+/* Card base para formularios y secciones */
+.card.bg-dark-subtle {
+    background-color: var(--bs-dark-subtle) !important;
+    border-color: var(--bs-dark-border-subtle) !important;
+}
+
+/* Sombra de la tarjeta (para darle profundidad) */
+.shadow-lg {
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.45) !important;
+}
+
+/* Mensajes de validación */
+.invalid-feedback {
+  font-size: 0.875em;
+}
+
+
+body {
+  font-family: 'Montserrat', sans-serif; /* Ejemplo, si importas esta fuente */
+}
+h2 { font-size: 2.25rem; }
+h3 { font-size: 1.75rem; } /* Ajuste de tamaño para subtítulos de sección */
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+.form-label { font-size: 1.05rem; }
+
+
+.class-card {
+  background-color: #242424 !important; /* Un gris oscuro más claro que el body-bg */
+  border-color: rgba(255, 255, 255, 0.1) !important; /* Un borde sutil */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.class-card:hover {
+    transform: translateY(-5px); /* Efecto de elevación al pasar el mouse */
+    box-shadow: 0 0.75rem 2rem rgba(var(--bs-primary-rgb), 0.15) !important; /* Sombra sutil con el color amarillo */
+}
+
+/* Asegura que la descripción de la clase ocupe el espacio */
+.class-card .card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.class-card .card-text.flex-grow-1 {
+  flex-grow: 1;
+}
+
+/* Estilo para el alert de "cargando" */
+.alert-info.bg-info-subtle {
+  background-color: rgba(13, 110, 253, 0.1) !important;
+  border-color: rgba(13, 110, 253, 0.3) !important;
+  color: var(--bs-info) !important;
+}

@@ -1,31 +1,147 @@
-<h2>Bienvenido a tu perfil</h2>
-<p>Aquí puedes ver y editar tu información.</p>
-
-<h2>Mi Perfil</h2>
-<form [formGroup]="form" (ngSubmit)="guardar()">
-  <div class="mb-3">
-    <label for="nombre">Nombre</label>
-    <input id="nombre" class="form-control" formControlName="nombre">
+<!-- <div class="container py-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="mb-0">Bienvenido a tu perfil</h2>
+    <button class="btn btn-outline-danger" (click)="logout()">Cerrar sesión</button>
   </div>
 
-  <div class="mb-3">
-    <label for="email">Email</label>
-    <input id="email" class="form-control" formControlName="email" type="email">
+  <div class="card mb-5 shadow-sm">
+    <div class="card-body">
+      <h4 class="card-title mb-4">Mi información personal</h4>
+      <form [formGroup]="form" (ngSubmit)="guardar()">
+        <div class="row">
+          <div class="mb-3 col-md-6">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input id="nombre" class="form-control" formControlName="nombre" placeholder="Ej: Juan Pérez">
+          </div>
+          <div class="mb-3 col-md-6">
+            <label for="email" class="form-label">Email</label>
+            <input id="email" class="form-control" formControlName="email" type="email" placeholder="ejemplo@correo.com">
+          </div>
+        </div>
+        <div class="row">
+          <div class="mb-3 col-md-6">
+            <label for="telefono" class="form-label">Teléfono</label>
+            <input id="telefono" class="form-control" formControlName="telefono" type="tel" placeholder="9 1234 5678">
+          </div>
+          <div class="mb-3 col-md-6">
+            <label for="edad" class="form-label">Edad</label>
+            <input id="edad" class="form-control" formControlName="edad" type="number" placeholder="Ej: 25">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-success mt-2" [disabled]="form.invalid">Guardar cambios</button>
+      </form>
+
+      <div *ngIf="saved" class="alert alert-success mt-3">
+        Perfil actualizado con éxito.
+      </div>
+    </div>
   </div>
 
-  <div class="mb-3">
-    <label for="telefono">Teléfono</label>
-    <input id="telefono" class="form-control" formControlName="telefono" type="tel">
+  <h4 class="mb-3">Clases disponibles en AlysGym</h4>
+  <div *ngIf="clases.length > 0; else cargando" class="row">
+    <div *ngFor="let clase of clases" class="col-md-6 col-lg-4 mb-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">{{ clase.nombre }}</h5>
+          <p class="card-text">{{ clase.descripcion }}</p>
+          <p class="mb-1"><strong>Entrenador:</strong> {{ clase.entrenador }}</p>
+          <p class="mb-0"><strong>Horario:</strong> {{ clase.horario }}</p>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="mb-3">
-    <label for="edad">Edad</label>
-    <input id="edad" class="form-control" formControlName="edad" type="number">
+  <ng-template #cargando>
+    <div class="alert alert-info">
+      Cargando clases...
+    </div>
+  </ng-template>
+</div> -->
+
+<body data-bs-theme="dark" class="bg-dark text-light">
+  <div class="container py-4 py-md-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2 class="mb-0 fw-bold text-yellow-accent">Mi Perfil</h2>
+      <button class="btn btn-outline-danger btn-sm" (click)="logout()">
+        <i class="bi bi-box-arrow-right me-1"></i> Cerrar sesión
+      </button>
+    </div>
+
+    <div class="card mb-5 bg-dark-subtle border-0 shadow-lg">
+      <div class="card-body p-4 p-md-4">
+        <h4 class="card-title mb-4 fw-semibold text-yellow-accent-light">Información Personal</h4>
+        <form [formGroup]="form" (ngSubmit)="guardar()" class="needs-validation" novalidate>
+          <div class="row g-3 mb-3"> <div class="col-md-6">
+              <label for="nombre" class="form-label text-light-emphasis">Nombre</label>
+              <input id="nombre" type="text" class="form-control bg-gray-dark border-secondary text-white"
+                     formControlName="nombre" placeholder="Ej: Juan Pérez" required
+                     [class.is-invalid]="form.get('nombre')?.invalid && form.get('nombre')?.touched">
+              <div *ngIf="form.get('nombre')?.invalid && form.get('nombre')?.touched" class="invalid-feedback">
+                El nombre es obligatorio.
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="email" class="form-label text-light-emphasis">Email</label>
+              <input id="email" type="email" class="form-control bg-gray-dark border-secondary text-white"
+                     formControlName="email" placeholder="ejemplo@correo.com" required
+                     [class.is-invalid]="form.get('email')?.invalid && form.get('email')?.touched">
+              <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched" class="invalid-feedback">
+                El email es obligatorio y debe ser válido.
+              </div>
+            </div>
+          </div>
+          <div class="row g-3 mb-4">
+            <div class="col-md-6">
+              <label for="telefono" class="form-label text-light-emphasis">Teléfono</label>
+              <input id="telefono" type="tel" class="form-control bg-gray-dark border-secondary text-white"
+                     formControlName="telefono" placeholder="9 1234 5678 (Chile)"
+                     [class.is-invalid]="form.get('telefono')?.invalid && form.get('telefono')?.touched">
+              <div *ngIf="form.get('telefono')?.invalid && form.get('telefono')?.touched" class="invalid-feedback">
+                Formato de teléfono inválido (ej: 9 1234 5678).
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="edad" class="form-label text-light-emphasis">Edad</label>
+              <input id="edad" type="number" class="form-control bg-gray-dark border-secondary text-white"
+                     formControlName="edad" placeholder="Ej: 25"
+                     [class.is-invalid]="form.get('edad')?.invalid && form.get('edad')?.touched">
+              <div *ngIf="form.get('edad')?.invalid && form.get('edad')?.touched" class="invalid-feedback">
+                La edad debe ser un número válido.
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg fw-bold" [disabled]="form.invalid">
+            Guardar cambios
+          </button>
+        </form>
+
+        <div *ngIf="saved" class="alert alert-success mt-4 text-center" role="alert">
+          ¡Perfil actualizado con éxito!
+        </div>
+      </div>
+    </div>
+
+    <h3 class="mb-4 fw-bold text-yellow-accent">Nuestras Clases</h3>
+    <div *ngIf="clases.length > 0; else cargando" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      <div *ngFor="let clase of clases" class="col">
+        <div class="card h-100 bg-dark-subtle border-0 shadow-sm class-card">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title mb-2 fw-semibold text-yellow-accent-light">{{ clase.nombre }}</h5>
+            <p class="card-text text-muted mb-3 flex-grow-1">{{ clase.descripcion }}</p>
+            <p class="mb-1 text-light-emphasis small"><strong>Entrenador:</strong> {{ clase.entrenador }}</p>
+            <p class="mb-0 text-light-emphasis small"><strong>Horario:</strong> {{ clase.horario }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #cargando>
+      <div class="alert alert-info bg-info-subtle border-info text-info-emphasis text-center mt-4">
+        Cargando clases disponibles...
+      </div>
+    </ng-template>
   </div>
 
-  <button class="btn btn-success" [disabled]="form.invalid">Guardar cambios</button>
-</form>
+</body>
 
-<div *ngIf="saved" class="alert alert-success mt-3">
-  Perfil actualizado con éxito.
-</div>
+

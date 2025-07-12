@@ -1,3 +1,22 @@
-<footer class=" bg-dark text-white text-center py-3">
+<!-- <footer class=" bg-dark text-white text-center py-3">
     <p class="mb-0">&copy; 2025 Alys Gym. Todos los derechos reservados.</p>
+</footer> -->
+
+<footer class="bg-dark text-muted py-4 mt-5 border-top border-dark-subtle"> <div class="container text-center">
+    <p class="mb-0">&copy; {{ getCurrentYear() }} Alys Gym. Todos los derechos reservados.</p>
+    <p class="mb-0 mt-1 small">Diseñado y desarrollado con pasión por el fitness.</p>
+  </div>
 </footer>
+
+<style>
+    /* --- Footer --- */
+footer {
+  background-color: var(--alysgym-dark) !important; /* Asegura el fondo oscuro */
+  color: var(--bs-muted) !important; /* Texto en gris muted */
+  font-size: 0.9rem;
+}
+
+footer p {
+    line-height: 1.5;
+}
+</style>
